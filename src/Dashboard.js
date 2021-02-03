@@ -1,8 +1,6 @@
 import React from 'react';
-import { Card, CardHeader} from 'material-ui/Card';
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default () => (
-    <Card style={{ margin: '2em' }}>
-        <CardHeader title="Bem-vindo ao painel ADM " />
-    </Card>
+    <h1>TESTANDO DASH</h1>
 );

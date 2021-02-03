@@ -1,19 +1,31 @@
 import React from 'react';
-import { jsonServerRestClient, Admin, Resource, Delete } from 'admin-on-rest';
+import { Delete } from 'admin-on-rest';
+import { fetchUtils, Admin, Resource } from 'react-admin';
+import simpleRestProvider from 'ra-data-simple-rest';
+import authProvider from './authProvider';
+
 import Dashboard from './Dashboard';
-import authClient from './authClient';
+import { CourseList, CourseCreate, CourseEdit } from './resources/courses';
 
-import CourseIcon from 'material-ui/svg-icons/action/card-membership';
 
-import { CoursesList, CourseCreate, CourseEdit } from './resources/categories';
+const httpClient = (url, options = {}) => {
+    if (!options.headers) {
+        options.headers = new Headers({ Accept: 'application/json' });
+    }
+    const token = localStorage.getItem('token');
+    options.headers.set('Authorization', `Bearer ${token}`);
+    return fetchUtils.fetchJson(url, options);
+}
+
+const dataProvider = simpleRestProvider('http://localhost:3000/admin', httpClient);
 
 const App = () => (
     <Admin 
         dashboard={Dashboard} 
-        authClient={authClient}
-        restClient={jsonServerRestClient('url da api')}
+        authProvider={authProvider}
+        dataProvider={dataProvider}
     >
-        <Resource name="cursos" list={CoursesList} edit={CourseEdit} create={CourseCreate} remove={Delete} icon={CourseIcon}/>
+        <Resource name="courses" list={CourseList} edit={CourseEdit} create={CourseCreate} remove={Delete} />
     </Admin>
 );
 
