@@ -9,6 +9,7 @@ import {
     DisabledInput,
     SimpleForm,
     TextInput,
+    ImageField,
     DateField,
 } from 'admin-on-rest';
 
@@ -17,9 +18,11 @@ export const CourseList = (props) => (
         <Datagrid>
             <TextField source="id" />
             <TextField label="Nome" source="name" />
+            <TextField label="Descrição" source="description" />
+            <TextField label="Deletado" source="deleted" />
+            <ImageField label="Banner" source="image" />
             <DateField label="Criado em" source="createdAt" />
             <DateField label="Atualizado em" source="updatedAt" />
-            {/* <EditButton /> */}
         </Datagrid>
     </List>
 );

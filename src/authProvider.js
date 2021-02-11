@@ -3,7 +3,7 @@ import { AUTH_LOGIN, AUTH_LOGOUT, AUTH_ERROR, AUTH_CHECK } from 'react-admin';
 const provider = async (type, params) => {
     if (type === AUTH_LOGIN) {
         const { username, password } = params;
-        const request = new Request('http://localhost:3000/admin/signin', {
+        const request = new Request('http://localhost:3005/admin/signin', {
             method: 'POST',
             body: JSON.stringify({ email: username, password }),
             headers: new Headers({ 'Content-Type': 'application/json' }),
