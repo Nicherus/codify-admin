@@ -7,10 +7,13 @@ import {
     Edit,
     Create,
     DisabledInput,
-    SimpleForm,
+    ReferenceArrayField,
+    SingleFieldList,
+    ChipField,
     TextInput,
     ImageField,
     DateField,
+    SimpleForm,
 } from 'admin-on-rest';
 
 export const CourseList = (props) => (
@@ -21,8 +24,14 @@ export const CourseList = (props) => (
             <TextField label="Descrição" source="description" />
             <TextField label="Deletado" source="deleted" />
             <ImageField label="Banner" source="image" />
+            <ReferenceArrayField label="Capítulos" source="chapters" reference="chapters">
+                <SingleFieldList>
+                    <ChipField source="name" />
+                </SingleFieldList>
+            </ReferenceArrayField>
             <DateField label="Criado em" source="createdAt" />
             <DateField label="Atualizado em" source="updatedAt" />
+            <EditButton />
         </Datagrid>
     </List>
 );
@@ -31,19 +40,24 @@ export const CourseList = (props) => (
 //     return <span>Course {record ? `"${record.name}"` : ''}</span>;
 // };
 
-// export const CourseCreate = (props) => (
-//     <Create {...props}>
-//         <SimpleForm>
-//             <TextInput label="Nome" source="name" />
-//         </SimpleForm>
-//     </Create>
-// );
+export const CourseCreate = (props) => (
+    <Create {...props}>
+        <SimpleForm>
+            <TextInput label="Nome" source="name" />
+            <TextInput label="Link Banner" source="image" />
+            <TextInput label="Descrição curso" source="description" />
+        </SimpleForm>
+    </Create>
+);
 
-// export const CourseEdit = (props) => (
-//     <Edit title={<CourseTitle />} {...props}>
-//         <SimpleForm>
-//             <DisabledInput source="id" />
-//             <TextInput label="Nome" source="name" />
-//         </SimpleForm>
-//     </Edit>
-// );
+export const CourseEdit = (props) => (
+    <Edit {...props}>
+        <SimpleForm>
+            <TextInput disabled source="id" />
+            <TextInput disabled source="deleted" />
+            <TextInput label="Nome" source="name" />
+            <TextInput label="Link Banner" source="image" />
+            <TextInput label="Descrição curso" source="description" />
+        </SimpleForm>
+    </Edit>
+);
