@@ -14,6 +14,9 @@ import {
     ImageField,
     DateField,
     SimpleForm,
+    ArrayInput,
+    SimpleFormIterator,
+    ReferenceArrayInput,
 } from 'admin-on-rest';
 
 export const CourseList = (props) => (
@@ -24,11 +27,11 @@ export const CourseList = (props) => (
             <TextField label="Descrição" source="description" />
             <TextField label="Deletado" source="deleted" />
             <ImageField label="Banner" source="image" />
-            <ReferenceArrayField label="Capítulos" source="chapters" reference="chapters">
+            {/* <ReferenceArrayField label="Capítulos" source="chapters" reference="chapters">
                 <SingleFieldList>
                     <ChipField source="name" />
                 </SingleFieldList>
-            </ReferenceArrayField>
+            </ReferenceArrayField> */}
             <DateField label="Criado em" source="createdAt" />
             <DateField label="Atualizado em" source="updatedAt" />
             <EditButton />
@@ -50,14 +53,40 @@ export const CourseCreate = (props) => (
     </Create>
 );
 
+/*
+"chapters": [
+    {
+        "name": "Apresentação AAAAA",
+        "topics": [
+            {
+                "name": "Introdução a prorgramação"
+            },
+        ]
+    },
+    {
+        "name": "Apresentação BBBBBB",
+        "topics": [
+            {
+                "name": "Introdução a prorgramação2"
+            },
+        ]
+    }
+]
+*/
+
 export const CourseEdit = (props) => (
     <Edit {...props}>
         <SimpleForm>
-            <TextInput disabled source="id" />
-            <TextInput disabled source="deleted" />
+            <DisabledInput source="id" />
+            <DisabledInput source="deleted" />
             <TextInput label="Nome" source="name" />
             <TextInput label="Link Banner" source="image" />
             <TextInput label="Descrição curso" source="description" />
+            {/* <ReferenceArrayInput label="Capitulos" source="chapters" references="chapters">
+                <SimpleFormIterator>
+                    <TextInput label="nome do capítulo" source="name" />
+                </SimpleFormIterator>
+            </ReferenceArrayInput>  */}
         </SimpleForm>
     </Edit>
 );
