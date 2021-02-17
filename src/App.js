@@ -5,7 +5,7 @@ import authProvider from './authProvider';
 // import { Admin, Resource, Delete } from 'admin-on-rest';
 
 import Dashboard from './Dashboard';
-import { CourseList } from './resources/courses';
+import { CourseList, CourseCreate, CourseEdit } from './resources/courses';
 import { ChapterList, ChapterCreate, ChapterEdit } from './resources/chapters';
 import { TopicCreate, TopicList, TopicEdit } from './resources/topics';
 
@@ -26,7 +26,7 @@ const App = () => (
         authProvider={authProvider}
         dataProvider={dataProvider}
     >
-        <Resource name="courses" list={CourseList} />
+        <Resource name="courses" list={CourseList} create={CourseCreate} edit={CourseEdit} />
         <Resource name="chapters" list={ChapterList} create={ChapterCreate} edit={ChapterEdit} />
         <Resource name="topics" list={TopicList} create={TopicCreate} edit={TopicEdit}/>
     </Admin>
