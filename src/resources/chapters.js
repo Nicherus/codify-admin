@@ -8,7 +8,7 @@ import {
     SingleFieldList,
     ChipField,
     DateField,
-} from 'admin-on-rest';
+} from 'react-admin';
 
 export const ChapterList = (props) => (
     <List {...props}>

@@ -1,11 +1,15 @@
 import React from 'react';
 import { 
     List, 
+    Create,
     Datagrid, 
     TextField, 
-    ImageField,
     DateField,
-} from 'admin-on-rest';
+    SimpleForm,
+    TextInput,
+    ReferenceInput,
+    SelectInput,
+} from 'react-admin';
 
 export const TopicList = (props) => (
     <List {...props}>
@@ -17,4 +21,15 @@ export const TopicList = (props) => (
             <DateField label="Atualizado em" source="updatedAt" />
         </Datagrid>
     </List>
+);
+
+export const TopicCreate = (props) => (
+    <Create {...props}>
+        <SimpleForm>
+            <TextInput label="Nome" source="name" />
+            <ReferenceInput label="Nome do capítulo" source="chapterId" reference="chapters">
+                <SelectInput />
+            </ReferenceInput>
+        </SimpleForm>
+    </Create>
 );

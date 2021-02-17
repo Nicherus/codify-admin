@@ -6,7 +6,6 @@ import {
     EditButton,
     Edit,
     Create,
-    DisabledInput,
     ReferenceArrayField,
     SingleFieldList,
     ChipField,
@@ -17,7 +16,7 @@ import {
     ArrayInput,
     SimpleFormIterator,
     ReferenceArrayInput,
-} from 'admin-on-rest';
+} from 'react-admin';
 
 export const CourseList = (props) => (
     <List {...props}>
@@ -27,11 +26,11 @@ export const CourseList = (props) => (
             <TextField label="Descrição" source="description" />
             <TextField label="Deletado" source="deleted" />
             <ImageField label="Banner" source="image" />
-            {/* <ReferenceArrayField label="Capítulos" source="chapters" reference="chapters">
+            <ReferenceArrayField label="Capítulos" source="chapters" reference="chapters">
                 <SingleFieldList>
                     <ChipField source="name" />
                 </SingleFieldList>
-            </ReferenceArrayField> */}
+            </ReferenceArrayField>
             <DateField label="Criado em" source="createdAt" />
             <DateField label="Atualizado em" source="updatedAt" />
             <EditButton />
@@ -43,15 +42,15 @@ export const CourseList = (props) => (
 //     return <span>Course {record ? `"${record.name}"` : ''}</span>;
 // };
 
-export const CourseCreate = (props) => (
-    <Create {...props}>
-        <SimpleForm>
-            <TextInput label="Nome" source="name" />
-            <TextInput label="Link Banner" source="image" />
-            <TextInput label="Descrição curso" source="description" />
-        </SimpleForm>
-    </Create>
-);
+// export const CourseCreate = (props) => (
+//     <Create {...props}>
+//         <SimpleForm>
+//             <TextInput label="Nome" source="name" />
+//             <TextInput label="Link Banner" source="image" />
+//             <TextInput label="Descrição curso" source="description" />
+//         </SimpleForm>
+//     </Create>
+// );
 
 /*
 "chapters": [
@@ -74,19 +73,19 @@ export const CourseCreate = (props) => (
 ]
 */
 
-export const CourseEdit = (props) => (
-    <Edit {...props}>
-        <SimpleForm>
-            <DisabledInput source="id" />
-            <DisabledInput source="deleted" />
-            <TextInput label="Nome" source="name" />
-            <TextInput label="Link Banner" source="image" />
-            <TextInput label="Descrição curso" source="description" />
-            {/* <ReferenceArrayInput label="Capitulos" source="chapters" references="chapters">
-                <SimpleFormIterator>
-                    <TextInput label="nome do capítulo" source="name" />
-                </SimpleFormIterator>
-            </ReferenceArrayInput>  */}
-        </SimpleForm>
-    </Edit>
-);
+// export const CourseEdit = (props) => (
+//     <Edit {...props}>
+//         <SimpleForm>
+//             <DisabledInput source="id" />
+//             <DisabledInput source="deleted" />
+//             <TextInput label="Nome" source="name" />
+//             <TextInput label="Link Banner" source="image" />
+//             <TextInput label="Descrição curso" source="description" />
+//             {/* <ReferenceArrayInput label="Capitulos" source="chapters" references="chapters">
+//                 <SimpleFormIterator>
+//                     <TextInput label="nome do capítulo" source="name" />
+//                 </SimpleFormIterator>
+//             </ReferenceArrayInput>  */}
+//         </SimpleForm>
+//     </Edit>
+// );
