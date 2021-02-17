@@ -29,7 +29,7 @@ export const TopicList = (props) => (
 );
 
 export const TopicCreate = (props) => (
-    <Create {...props}>
+    <Create title = "Criando um tópico..." {...props}>
         <SimpleForm>
             <TextInput label="Nome" source="name" />
             <ReferenceInput label="Nome do capítulo" source="chapterId" reference="chapters">
@@ -40,8 +40,9 @@ export const TopicCreate = (props) => (
 );
 
 export const TopicEdit = (props) => (
-    <Edit {...props}>
+    <Edit title = "Editando um tópico..." {...props}>
         <SimpleForm>
+            <TextInput disabled label="Id" source="id" />
             <TextInput label="Nome" source="name" />
             <ReferenceInput label="Nome do capítulo" source="chapterId" reference="chapters">
                 <SelectInput />
@@ -49,16 +50,3 @@ export const TopicEdit = (props) => (
         </SimpleForm>
     </Edit>
 );
-
-/* <SimpleForm>
-            <DisabledInput source="id" />
-            <DisabledInput source="deleted" />
-            <TextInput label="Nome" source="name" />
-            <TextInput label="Link Banner" source="image" />
-            <TextInput label="Descrição curso" source="description" />
-            {/* <ReferenceArrayInput label="Capitulos" source="chapters" references="chapters">
-                <SimpleFormIterator>
-                    <TextInput label="nome do capítulo" source="name" />
-                </SimpleFormIterator>
-            </ReferenceArrayInput>  */
-        // </SimpleForm> */}
