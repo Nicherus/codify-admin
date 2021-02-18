@@ -9,7 +9,6 @@ import { CourseList, CourseCreate, CourseEdit } from './resources/courses';
 import { ChapterList, ChapterCreate, ChapterEdit } from './resources/chapters';
 import { TopicCreate, TopicList, TopicEdit } from './resources/topics';
 
-
 const httpClient = (url, options = {}) => {
     if (!options.headers) {
         options.headers = new Headers({ Accept: 'application/json' });
@@ -17,19 +16,19 @@ const httpClient = (url, options = {}) => {
     const token = localStorage.getItem('token');
     options.headers.set('x-access-token', `${token}`);
     return fetchUtils.fetchJson(url, options);
-}
+};
 
 const dataProvider = simpleRestProvider('http://localhost:3005/admin', httpClient);
 const App = () => (
-    <Admin 
+  <Admin 
         dashboard={Dashboard} 
         authProvider={authProvider}
         dataProvider={dataProvider}
     >
-        <Resource name="courses" list={CourseList} create={CourseCreate} edit={CourseEdit} />
-        <Resource name="chapters" list={ChapterList} create={ChapterCreate} edit={ChapterEdit} />
-        <Resource name="topics" list={TopicList} create={TopicCreate} edit={TopicEdit}/>
-    </Admin>
+    <Resource name="courses" list={CourseList} create={CourseCreate} edit={CourseEdit} />
+    <Resource name="chapters" list={ChapterList} create={ChapterCreate} edit={ChapterEdit} />
+    <Resource name="topics" list={TopicList} create={TopicCreate} edit={TopicEdit}/>
+  </Admin>
 );
 
 export default App;
