@@ -6,20 +6,34 @@ import {
     EditButton,
     Edit,
     Create,
-    DisabledInput,
-    SimpleForm,
+    ReferenceArrayField,
+    SingleFieldList,
+    ChipField,
     TextInput,
+    ImageField,
     DateField,
-} from 'admin-on-rest';
+    SimpleForm,
+    ArrayInput,
+    SimpleFormIterator,
+    ReferenceArrayInput,
+} from 'react-admin';
 
 export const CourseList = (props) => (
     <List {...props}>
         <Datagrid>
             <TextField source="id" />
             <TextField label="Nome" source="name" />
+            <TextField label="Descrição" source="description" />
+            <TextField label="Deletado" source="deleted" />
+            <ImageField label="Banner" source="image" />
+            <ReferenceArrayField label="Capítulos" source="chapters" reference="chapters">
+                <SingleFieldList>
+                    <ChipField source="name" />
+                </SingleFieldList>
+            </ReferenceArrayField>
             <DateField label="Criado em" source="createdAt" />
             <DateField label="Atualizado em" source="updatedAt" />
-            {/* <EditButton /> */}
+            <EditButton />
         </Datagrid>
     </List>
 );
@@ -32,15 +46,46 @@ export const CourseList = (props) => (
 //     <Create {...props}>
 //         <SimpleForm>
 //             <TextInput label="Nome" source="name" />
+//             <TextInput label="Link Banner" source="image" />
+//             <TextInput label="Descrição curso" source="description" />
 //         </SimpleForm>
 //     </Create>
 // );
 
+/*
+"chapters": [
+    {
+        "name": "Apresentação AAAAA",
+        "topics": [
+            {
+                "name": "Introdução a prorgramação"
+            },
+        ]
+    },
+    {
+        "name": "Apresentação BBBBBB",
+        "topics": [
+            {
+                "name": "Introdução a prorgramação2"
+            },
+        ]
+    }
+]
+*/
+
 // export const CourseEdit = (props) => (
-//     <Edit title={<CourseTitle />} {...props}>
+//     <Edit {...props}>
 //         <SimpleForm>
 //             <DisabledInput source="id" />
+//             <DisabledInput source="deleted" />
 //             <TextInput label="Nome" source="name" />
+//             <TextInput label="Link Banner" source="image" />
+//             <TextInput label="Descrição curso" source="description" />
+//             {/* <ReferenceArrayInput label="Capitulos" source="chapters" references="chapters">
+//                 <SimpleFormIterator>
+//                     <TextInput label="nome do capítulo" source="name" />
+//                 </SimpleFormIterator>
+//             </ReferenceArrayInput>  */}
 //         </SimpleForm>
 //     </Edit>
 // );
