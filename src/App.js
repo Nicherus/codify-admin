@@ -19,13 +19,14 @@ const httpClient = (url, options = {}) => {
     return fetchUtils.fetchJson(url, options);
 }
 
-const dataProvider = simpleRestProvider('http://localhost:3005/admin', httpClient);
+const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:3005/admin';
+
+const dataProvider = simpleRestProvider(apiUrl, httpClient);
 const App = () => (
     <Admin 
         dashboard={Dashboard} 
         authProvider={authProvider}
         dataProvider={dataProvider}
-        //restClient={jsonServerRestClient('http://localhost:3005/admin')}
     >
         <Resource name="courses" list={CourseList} />
         <Resource name="chapters" list={ChapterList} />
