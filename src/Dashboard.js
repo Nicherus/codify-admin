@@ -1,5 +1,7 @@
 import React from 'react';
 
-export default () => (
-    <h1>TESTANDO DASH</h1>
+const Dashboard = () => (
+  <h1>TESTANDO DASH</h1>
 );
+
+export default Dashboard;
