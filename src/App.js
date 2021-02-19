@@ -2,7 +2,6 @@ import React from 'react';
 import { fetchUtils, Admin, Resource } from 'react-admin';
 import simpleRestProvider from 'ra-data-simple-rest';
 import authProvider from './authProvider';
-// import { Admin, Resource, Delete } from 'admin-on-rest';
 
 import Dashboard from './Dashboard';
 import { CourseList } from './resources/courses';
