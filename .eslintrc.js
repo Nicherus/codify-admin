@@ -29,5 +29,8 @@ module.exports = {
         'keyword-spacing': ['error', { 'before': true, 'after': true }],
         'space-in-parens': ['error', 'never'],
         'eol-last': ['error', 'always']
+    },
+    globals: {
+        process: true,
     }
 };
