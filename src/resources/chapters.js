@@ -1,13 +1,20 @@
 import React from 'react';
 import { 
-    List, 
-    Datagrid, 
+    List,
+    Create,
+    Edit,
+    Datagrid,
+    SimpleForm,
     TextField, 
-    ImageField,
     ReferenceArrayField,
     SingleFieldList,
     ChipField,
     DateField,
+    EditButton,
+    DeleteButton,
+    TextInput,
+    ReferenceInput,
+    SelectInput
 } from 'react-admin';
 
 export const ChapterList = (props) => (
@@ -23,6 +30,31 @@ export const ChapterList = (props) => (
             </ReferenceArrayField>
             <DateField label="Criado em" source="createdAt" />
             <DateField label="Atualizado em" source="updatedAt" />
+            <EditButton />
+            <DeleteButton />
         </Datagrid>
     </List>
+);
+
+export const ChapterCreate = (props) => (
+    <Create title = "Criando um capítulo..." {...props}>
+        <SimpleForm>
+            <TextInput label="Nome" source="name" />
+            <ReferenceInput label="Nome do curso" source="courseId" reference="courses">
+                <SelectInput />
+            </ReferenceInput>
+        </SimpleForm>
+    </Create>
+);
+
+export const ChapterEdit = (props) => (
+    <Edit title = "Editando um capítulo..." {...props}>
+        <SimpleForm>
+            <TextInput disabled label="Id" source="id" />
+            <TextInput label="Nome" source="name" />
+            <ReferenceInput label="Nome do curso" source="courseId" reference="courses">
+                <SelectInput />
+            </ReferenceInput>
+        </SimpleForm>
+    </Edit>
 );

@@ -5,7 +5,7 @@ import authProvider from './authProvider';
 
 import Dashboard from './Dashboard';
 import { CourseList } from './resources/courses';
-import { ChapterList } from './resources/chapters';
+import { ChapterList, ChapterCreate, ChapterEdit } from './resources/chapters';
 import { TopicCreate, TopicList, TopicEdit } from './resources/topics';
 
 
@@ -28,7 +28,7 @@ const App = () => (
         dataProvider={dataProvider}
     >
         <Resource name="courses" list={CourseList} />
-        <Resource name="chapters" list={ChapterList} />
+        <Resource name="chapters" list={ChapterList} create={ChapterCreate} edit={ChapterEdit} />
         <Resource name="topics" list={TopicList} create={TopicCreate} edit={TopicEdit}/>
     </Admin>
 );
