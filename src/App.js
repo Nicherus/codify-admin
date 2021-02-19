@@ -2,12 +2,11 @@ import React from 'react';
 import { fetchUtils, Admin, Resource } from 'react-admin';
 import simpleRestProvider from 'ra-data-simple-rest';
 import authProvider from './authProvider';
-// import { Admin, Resource, Delete } from 'admin-on-rest';
 
 import Dashboard from './Dashboard';
 import { CourseList } from './resources/courses';
 import { ChapterList } from './resources/chapters';
-import { TopicCreate, TopicList } from './resources/topics';
+import { TopicCreate, TopicList, TopicEdit } from './resources/topics';
 
 
 const httpClient = (url, options = {}) => {
@@ -30,7 +29,7 @@ const App = () => (
     >
         <Resource name="courses" list={CourseList} />
         <Resource name="chapters" list={ChapterList} />
-        <Resource name="topics" list={TopicList} create={TopicCreate} />
+        <Resource name="topics" list={TopicList} create={TopicCreate} edit={TopicEdit}/>
     </Admin>
 );
 
