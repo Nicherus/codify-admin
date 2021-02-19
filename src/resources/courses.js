@@ -52,40 +52,5 @@ export const CourseList = (props) => (
 //     </Create>
 // );
 
-/*
-"chapters": [
-    {
-        "name": "Apresentação AAAAA",
-        "topics": [
-            {
-                "name": "Introdução a prorgramação"
-            },
-        ]
-    },
-    {
-        "name": "Apresentação BBBBBB",
-        "topics": [
-            {
-                "name": "Introdução a prorgramação2"
-            },
-        ]
-    }
-]
-*/
 
-// export const CourseEdit = (props) => (
-//     <Edit {...props}>
-//         <SimpleForm>
-//             <DisabledInput source="id" />
-//             <DisabledInput source="deleted" />
-//             <TextInput label="Nome" source="name" />
-//             <TextInput label="Link Banner" source="image" />
-//             <TextInput label="Descrição curso" source="description" />
-//             {/* <ReferenceArrayInput label="Capitulos" source="chapters" references="chapters">
-//                 <SimpleFormIterator>
-//                     <TextInput label="nome do capítulo" source="name" />
-//                 </SimpleFormIterator>
-//             </ReferenceArrayInput>  */}
-//         </SimpleForm>
-//     </Edit>
-// );
+
