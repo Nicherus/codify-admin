@@ -14,7 +14,8 @@ import {
     DeleteButton,
     TextInput,
     ReferenceInput,
-    SelectInput
+    SelectInput,
+    ReferenceField,
 } from 'react-admin';
 
 export const ChapterList = (props) => (
@@ -22,7 +23,9 @@ export const ChapterList = (props) => (
     <Datagrid>
       <TextField source="id" />
       <TextField label="Nome" source="name" />
-      <TextField label="ID do curso" source="courseId" />
+      <ReferenceField label="Curso" source="courseId" reference="courses">
+        <TextField source="name" />
+      </ReferenceField>
       <ReferenceArrayField label="Tópicos" source="topics" reference="topics">
         <SingleFieldList>
           <ChipField source="name" />
