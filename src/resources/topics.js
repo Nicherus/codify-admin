@@ -12,6 +12,7 @@ import {
     SelectInput,
     EditButton,
     DeleteButton,
+    ReferenceField,
 } from 'react-admin';
 
 export const TopicList = (props) => (
@@ -19,7 +20,9 @@ export const TopicList = (props) => (
     <Datagrid>
       <TextField source="id" />
       <TextField label="Nome" source="name" />
-      <TextField label="ID do capitulo" source="chapterId" />
+      <ReferenceField label="Capítulo" source="chapterId" reference="chapters">
+        <TextField source="name" />
+      </ReferenceField>
       <DateField label="Criado em" source="createdAt" />
       <DateField label="Atualizado em" source="updatedAt" />
       <EditButton />
