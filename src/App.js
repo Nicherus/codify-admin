@@ -7,6 +7,7 @@ import Dashboard from './Dashboard';
 import { CourseList, CourseCreate, CourseEdit } from './resources/courses';
 import { ChapterList, ChapterCreate, ChapterEdit } from './resources/chapters';
 import { TopicCreate, TopicList, TopicEdit } from './resources/topics';
+import { ExerciseCreate, ExerciseList, ExerciseEdit } from './resources/exercises';
 
 const httpClient = (url, options = {}) => {
     if (!options.headers) {
@@ -20,6 +21,7 @@ const httpClient = (url, options = {}) => {
 const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:3005/admin';
 
 const dataProvider = simpleRestProvider(apiUrl, httpClient);
+
 const App = () => (
   <Admin 
         dashboard={Dashboard} 
@@ -29,6 +31,7 @@ const App = () => (
     <Resource name="courses" list={CourseList} create={CourseCreate} edit={CourseEdit} />
     <Resource name="chapters" list={ChapterList} create={ChapterCreate} edit={ChapterEdit} />
     <Resource name="topics" list={TopicList} create={TopicCreate} edit={TopicEdit}/>
+    <Resource name="exercises" list={ExerciseList} create={ExerciseCreate} edit={ExerciseEdit}/>
   </Admin>
 );
 
