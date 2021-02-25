@@ -1,5 +1,5 @@
 import React from 'react';
-import { fetchUtils, Admin, Resource } from 'react-admin';
+import { fetchUtils, Admin, Resource, EditGuesser } from 'react-admin';
 import simpleRestProvider from 'ra-data-simple-rest';
 import authProvider from './authProvider';
 
@@ -7,6 +7,7 @@ import Dashboard from './Dashboard';
 import { CourseList, CourseCreate, CourseEdit } from './resources/courses';
 import { ChapterList, ChapterCreate, ChapterEdit } from './resources/chapters';
 import { TopicCreate, TopicList, TopicEdit } from './resources/topics';
+import { TheoryList } from './resources/theories';
 
 const httpClient = (url, options = {}) => {
     if (!options.headers) {
@@ -29,6 +30,7 @@ const App = () => (
     <Resource name="courses" list={CourseList} create={CourseCreate} edit={CourseEdit} />
     <Resource name="chapters" list={ChapterList} create={ChapterCreate} edit={ChapterEdit} />
     <Resource name="topics" list={TopicList} create={TopicCreate} edit={TopicEdit}/>
+    <Resource name="theories" list={TheoryList} edit={EditGuesser} />
   </Admin>
 );
 

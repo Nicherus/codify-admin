@@ -35,6 +35,7 @@ export const TopicCreate = (props) => (
   <Create title="Criando um tópico..." {...props}>
     <SimpleForm>
       <TextInput label="Nome" source="name" />
+      <TextInput label="Link da Teoria" source="youtubeLink" />
       <ReferenceInput label="Nome do capítulo" source="chapterId" reference="chapters">
         <SelectInput />
       </ReferenceInput>
@@ -47,6 +48,8 @@ export const TopicEdit = (props) => (
     <SimpleForm>
       <TextInput disabled label="Id" source="id" />
       <TextInput label="Nome" source="name" />
+      <TextInput disabled label="Id teoria" source="theory.id" />
+      <TextInput label="Link da Teoria" source="theory.youtubeLink" />
       <ReferenceInput label="Nome do capítulo" source="chapterId" reference="chapters">
         <SelectInput />
       </ReferenceInput>
