@@ -8,7 +8,6 @@ import {
     SimpleForm,
     TextInput,
     EditButton,
-    DeleteButton,
     ReferenceField,
 } from 'react-admin';
 
