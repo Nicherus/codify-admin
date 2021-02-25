@@ -1,9 +1,12 @@
 import React from 'react';
 import { 
     List, 
+    Edit,
     Datagrid, 
     TextField, 
     DateField,
+    SimpleForm,
+    TextInput,
     EditButton,
     DeleteButton,
     ReferenceField,
@@ -29,4 +32,13 @@ export const TheoryList = props => (
       <DeleteButton />
     </Datagrid>
   </List>
+);
+
+export const TheoryEdit = props => (
+  <Edit {...props}>
+    <SimpleForm>
+      <TextInput disabled source="id" />
+      <TextInput source="youtubeLink" />
+    </SimpleForm>
+  </Edit>
 );
