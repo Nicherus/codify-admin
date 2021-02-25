@@ -29,7 +29,6 @@ export const TheoryList = props => (
       <DateField label="Criado em" source="createdAt" />
       <DateField label="Atualizado em" source="updatedAt" />
       <EditButton />
-      <DeleteButton />
     </Datagrid>
   </List>
 );
