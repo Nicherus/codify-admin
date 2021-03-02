@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { 
     List, 
     Create,
@@ -31,17 +31,22 @@ export const TopicList = (props) => (
   </List>
 );
 
-export const TopicCreate = (props) => (
-  <Create title="Criando um tópico..." {...props}>
-    <SimpleForm>
-      <TextInput label="Nome" source="name" />
-      <TextInput label="Link da Teoria" source="youtubeLink" />
-      <ReferenceInput label="Nome do capítulo" source="chapterId" reference="chapters">
-        <SelectInput />
-      </ReferenceInput>
-    </SimpleForm>
-  </Create>
-);
+export const TopicCreate = (props) => {
+  const [selectedCourse, setSelectedCourse] = useState(null);
+  return (
+    <Create title="Criando um tópico..." {...props}>
+      <SimpleForm>
+        <ReferenceInput label="Curso" source="courseId" reference="courses" onChange={e => setSelectedCourse(e.target.value)}>
+          <SelectInput />
+        </ReferenceInput>
+        <ReferenceInput label="Capítulo" source="chapterId" reference="chapters" filter={selectedCourse && { courseId: selectedCourse }}>
+          <SelectInput />
+        </ReferenceInput>
+        <TextInput label="Nome" source="name" />
+        <TextInput label="Link da Teoria" source="youtubeLink" />
+      </SimpleForm>
+    </Create>
+);};
 
 export const TopicEdit = (props) => (
   <Edit title="Editando um tópico..." {...props}>

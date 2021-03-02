@@ -8,6 +8,7 @@ import { CourseList, CourseCreate, CourseEdit } from './resources/courses';
 import { ChapterList, ChapterCreate, ChapterEdit } from './resources/chapters';
 import { TopicCreate, TopicList, TopicEdit } from './resources/topics';
 import { TheoryList, TheoryEdit } from './resources/theories';
+import { ExerciseCreate, ExerciseList, ExerciseEdit } from './resources/exercises';
 
 const httpClient = (url, options = {}) => {
     if (!options.headers) {
@@ -31,6 +32,7 @@ const App = () => (
     <Resource name="chapters" list={ChapterList} create={ChapterCreate} edit={ChapterEdit} />
     <Resource name="topics" list={TopicList} create={TopicCreate} edit={TopicEdit}/>
     <Resource name="theories" list={TheoryList} edit={TheoryEdit} />
+    <Resource name="exercises" list={ExerciseList} create={ExerciseCreate} edit={ExerciseEdit} />
   </Admin>
 );
 
